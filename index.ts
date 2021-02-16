@@ -23,6 +23,8 @@ async function run(): Promise<void> {
     const isSameRepo = !deployRepo || deployRepo === github.context.repo.repo
 
     if (isSameRepo && github.context.ref === `refs/heads/${deployBranch}`) {
+      console.log(`Same repo ${isSameRepo}`)
+      console.log(`Repo ${deployRepo}`)
       console.log(`Triggered by branch used to deploy: ${github.context.ref}.`)
       console.log('Nothing to deploy.')
       return
